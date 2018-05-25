@@ -11,22 +11,27 @@ namespace sampleApi.Controllers.api
 {
     public class studentsController : ApiController
     {
-        private ApplicationDbContext _context;
 
+        //ApplicationDbContext -> connection to db
+        private ApplicationDbContext _context;
         public studentsController()
         {
             _context = new ApplicationDbContext();
         }
+        //ApplicationDbContext -> connection to db
 
-        //GET localhost/api/students
-        
+
+
+
+        //GET
+        // localhost/api/students
         public IEnumerable<Students> GetStudents()
         {
             return _context.Students.ToList();
-
         }
 
-        //GET localhost/api/students/1
+        //localhost/api/students/{id}
+        //localhost/api/students/1
         public Students GetStudents(int id)
         {
             var student = _context.Students.Single(x => x.Id == id);
@@ -34,9 +39,11 @@ namespace sampleApi.Controllers.api
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-
             return student;
         }
+
+        //GET
+
 
         //POST localhost/api/students
         [HttpPost]
@@ -46,12 +53,15 @@ namespace sampleApi.Controllers.api
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
-
             _context.Students.Add(students);
             _context.SaveChanges();
             return students;
         }
+        //POST localhost/api/students
 
+
+        //PUT localhost/api/students/{id}
+        //PUT localhost/api/students/1
         [HttpPut]
         public void UpdateStudent(int id, Students students)
         {
@@ -66,7 +76,12 @@ namespace sampleApi.Controllers.api
             _context.SaveChanges();
 
         }
+        //PUT localhost/api/students/{id}
+        //PUT localhost/api/students/1
 
+
+        //DELETE localhost/api/students/{id}
+        //DELETE localhost/api/students/1
         [HttpDelete]
         public void UpdateStudent(int id)
         {
@@ -78,9 +93,9 @@ namespace sampleApi.Controllers.api
 
             _context.Students.Remove(studentInDb);
             _context.SaveChanges();
-
-
         }
+        //DELETE localhost/api/students/{id}
+        //DELETE localhost/api/students/1
 
 
 
