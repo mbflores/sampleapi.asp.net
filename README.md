@@ -25,13 +25,23 @@ Creating "Sample Api" with Asp.Net
 
 
 ![alt text]( https://github.com/mbflores/sampleapi.asp.net/blob/master/img/4.png)
+
+
 Add students in your IdentityModel.cs in Models, 
+
+
 [ public DbSet<Students> Students{get; set;} ]
 
  
 5.	Open Your PackageManager Console.
+
+
 a.	“enable-migrations”
+
+
 b.	“add-migration [nameofmigration]”
+
+
 c.	Update-database
  
  
@@ -54,7 +64,11 @@ c.	Update-database
 
 
 8.	API PART
+
+
 a.	Add folder in Controllers folder and name it as “api”
+
+
 b.	Add Web API 2 Controller – Empty, and name it as “studentsController”
  
  
@@ -62,7 +76,7 @@ b.	Add Web API 2 Controller – Empty, and name it as “studentsController”
  ![alt text]( https://github.com/mbflores/sampleapi.asp.net/blob/master/img/8.png)
  
  
-9.	Go to Global.asax.cs in your Solution Explorer, Global.asaxGlobal.asax.cs, and follow the pictures below
+9.	Go to Global.asax.cs in your Solution Explorer, Global.asax -> Global.asax.cs, and follow the pictures below
  
 
  
@@ -81,7 +95,11 @@ b.	Add Web API 2 Controller – Empty, and name it as “studentsController”
 
 
 11.	GET METHOD
+
+
 a.	The GetStudents() code-block enables your API to get a list of students in your db
+
+
 b.	The GetStudents(int id)  codeblock enables your API to get a specific student by id
 
 
